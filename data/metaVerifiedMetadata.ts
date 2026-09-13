@@ -13,14 +13,14 @@ function resolveMetadataBase(): URL | undefined {
   if (siteUrl) {
     return toAbsoluteUrl(siteUrl)
   }
-  // Netlify: URL = production site; DEPLOY_PRIME_URL = preview/branch deploy
-  const netlifyUrl = process.env.URL?.trim()
-  if (netlifyUrl) {
-    return toAbsoluteUrl(netlifyUrl)
+  // Vercel: VERCEL_PROJECT_PRODUCTION_URL = production host; VERCEL_URL = current deployment
+  const vercelProductionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL?.trim()
+  if (vercelProductionUrl) {
+    return toAbsoluteUrl(vercelProductionUrl)
   }
-  const deployPrimeUrl = process.env.DEPLOY_PRIME_URL?.trim()
-  if (deployPrimeUrl) {
-    return toAbsoluteUrl(deployPrimeUrl)
+  const vercelUrl = process.env.VERCEL_URL?.trim()
+  if (vercelUrl) {
+    return toAbsoluteUrl(vercelUrl)
   }
   return undefined
 }

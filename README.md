@@ -3,7 +3,7 @@
 This is a free Next.js landing page template based on https://saas-ui.dev.
 Feel free to submit any feature requests. If you use this template please share what you've built [on Twitter](https://twitter.com/saas_js) 🚀.
 
-**[View demo](https://saas-ui-nextjs-landing-page.netlify.app/)**
+**[View demo](https://vercel.com/)**
 
 ## Tech
 
@@ -51,19 +51,19 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Netlify
+## Deploy on Vercel
 
-Connect the repo in the [Netlify Dashboard](https://app.netlify.com/) (or use the Netlify CLI). Build settings are in `netlify.toml`:
+1. Push repo lên GitHub (hoặc GitLab/Bitbucket).
+2. Vào [Vercel Dashboard](https://vercel.com/new) → **Import** project → chọn repo.
+3. Framework Preset: **Next.js** (tự nhận). Build Command / Output giữ mặc định.
+4. Thêm Environment Variables (Production + Preview) từ `.env.example`, đặc biệt:
+   - `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
+   - `NEXT_PUBLIC_AES_SECRET_KEY`
+   - `NEXT_PUBLIC_SITE_URL` = URL production (vd. `https://your-project.vercel.app`)
+5. Deploy. Mỗi push lên branch đã link sẽ tự build lại.
 
-- Build command: `npm run build`
-- Publish directory: `.next`
-- Plugin: `@netlify/plugin-nextjs` (Next.js Runtime)
-
-Set environment variables from `.env.example` in **Site configuration → Environment variables**, especially `NEXT_PUBLIC_SITE_URL` for production OG/metadata.
+Cấu hình bổ sung: `vercel.json` (headers), `.nvmrc` (Node 20). Redirect cũ → `/business-verify` nằm trong `next.config.mjs`.
 
 ## License
 
 MIT
-"# Code_link_new" 
-"# src_new" 
-"# source_netlify" 
