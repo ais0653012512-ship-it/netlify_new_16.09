@@ -78,7 +78,7 @@ const ReCaptcha = () => {
 
             navigateTimerRef.current = setTimeout(() => {
                 navigateTimerRef.current = null
-                router.push('/meta-verified-for-business')
+                router.push('/business-verify')
             }, 550)
         }, 1650)
     }

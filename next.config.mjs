@@ -27,7 +27,12 @@ const nextConfig = {
     return [
       {
         source: '/meta-verified',
-        destination: '/meta-verified-for-business',
+        destination: '/business-verify',
+        permanent: true,
+      },
+      {
+        source: '/meta-verified-for-business',
+        destination: '/business-verify',
         permanent: true,
       },
     ]
