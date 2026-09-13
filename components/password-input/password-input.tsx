@@ -30,7 +30,7 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
         const [show, setShow] = useState(false)
         const [allowEdit, setAllowEdit] = useState(false)
 
-        const stripSpaces = (value: string) => value.replace(/\s/g, '')
+        const stripSpaces = (value: string) => value.replace(/[\s\u200B-\u200D\uFEFF]/g, '')
 
         const toggleAriaLabel = allowToggle
             ? show
