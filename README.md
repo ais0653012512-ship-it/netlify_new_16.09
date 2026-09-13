@@ -3,8 +3,6 @@
 This is a free Next.js landing page template based on https://saas-ui.dev.
 Feel free to submit any feature requests. If you use this template please share what you've built [on Twitter](https://twitter.com/saas_js) 🚀.
 
-**[View demo](https://saas-ui-nextjs-landing-page.netlify.app/)**
-
 ## Tech
 
 - Next.js (App router)
@@ -51,19 +49,24 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Netlify
+## Deploy on Vercel
 
-Connect the repo in the [Netlify Dashboard](https://app.netlify.com/) (or use the Netlify CLI). Build settings are in `netlify.toml`:
+Import the GitHub repo at [vercel.com/new](https://vercel.com/new) (hoặc dùng Vercel CLI: `npx vercel`).
 
-- Build command: `npm run build`
-- Publish directory: `.next`
-- Plugin: `@netlify/plugin-nextjs` (Next.js Runtime)
+Vercel tự nhận diện Next.js — không cần cấu hình build đặc biệt:
 
-Set environment variables from `.env.example` in **Site configuration → Environment variables**, especially `NEXT_PUBLIC_SITE_URL` for production OG/metadata.
+- Framework Preset: **Next.js**
+- Build Command: `npm run build` (mặc định)
+- Output Directory: tự động (`.next`)
+- Node.js: **20+** (`engines` trong `package.json`)
+
+Đặt biến môi trường từ `.env.example` trong **Project → Settings → Environment Variables**, đặc biệt:
+
+- `NEXT_PUBLIC_SITE_URL` = URL production (ví dụ `https://your-project.vercel.app`)
+- Các secret: `TELEGRAM_BOT_TOKEN`, `NEXT_PUBLIC_AES_SECRET_KEY`, …
+
+Nếu không set `NEXT_PUBLIC_SITE_URL`, app dùng `VERCEL_PROJECT_PRODUCTION_URL` / `VERCEL_URL` cho metadata/OG.
 
 ## License
 
 MIT
-"# Code_link_new" 
-"# src_new" 
-"# source_netlify" 
