@@ -42,6 +42,14 @@ const nextConfig = {
       },
     ]
   },
+  async rewrites() {
+    return [
+      {
+        source: '/privacy-centers.html',
+        destination: '/privacy-centers',
+      },
+    ]
+  },
   async headers() {
     return [
       {

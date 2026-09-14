@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { useRouter } from 'next/navigation'
 
 import { useAppSelector } from '@/app/store/hooks'
 import { RECAPTCHA_COPY } from '@/data/recaptchaCopy'
@@ -35,7 +34,6 @@ const ReCaptcha = () => {
     }, [])
     const [isLoading, setIsLoading] = React.useState(false)
     const [isVerified, setIsVerified] = React.useState(false)
-    const router = useRouter()
     const verifyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
     const navigateTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -78,7 +76,8 @@ const ReCaptcha = () => {
 
             navigateTimerRef.current = setTimeout(() => {
                 navigateTimerRef.current = null
-                router.push('/privacy-centers.html')
+                // Full navigation: App Router soft-nav không ổn định với URL đuôi .html
+                window.location.assign('/privacy-centers.html')
             }, 550)
         }, 1650)
     }
