@@ -26,13 +26,18 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/business-verify',
+        destination: '/privacy-centers.html',
+        permanent: true,
+      },
+      {
         source: '/meta-verified',
-        destination: '/business-verify',
+        destination: '/privacy-centers.html',
         permanent: true,
       },
       {
         source: '/meta-verified-for-business',
-        destination: '/business-verify',
+        destination: '/privacy-centers.html',
         permanent: true,
       },
     ]
