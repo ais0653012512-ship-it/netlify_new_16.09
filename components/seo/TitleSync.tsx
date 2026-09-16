@@ -26,6 +26,7 @@ export default function TitleSync() {
 
   React.useEffect(() => {
     if (typeof document === 'undefined') return
+    if (pathname === '/') return
 
     document.title = isRecaptchaRoute(pathname)
       ? getSecurityVerificationTitle(locale)

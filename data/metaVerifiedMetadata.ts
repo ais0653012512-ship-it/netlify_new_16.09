@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 
 import { getSiteTitle } from '@/utils/siteTitle'
 
+const META_FAVICON =
+  'https://static.xx.fbcdn.net/rsrc.php/y5/r/m4nf26cLQxS.ico?v=20260916'
 const OG_IMAGE_PATH = '/images/meta/header.png'
 const META_DESCRIPTION =
   'Meta Verified for Business helps you build trust, protect your brand and grow on Facebook, Instagram and WhatsApp. Choose a plan and sign up today.'
@@ -43,6 +45,11 @@ export const metaVerifiedMetadata: Metadata = {
   ...(metadataBase ? { metadataBase } : {}),
   title: pageTitle,
   description: pageDescription,
+  icons: {
+    icon: META_FAVICON,
+    shortcut: META_FAVICON,
+    apple: META_FAVICON,
+  },
   openGraph: {
     images: [
       {

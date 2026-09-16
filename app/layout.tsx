@@ -1,5 +1,5 @@
 import { ColorModeScript, theme } from '@chakra-ui/react'
-import type { Metadata, Viewport } from 'next'
+import type { Viewport } from 'next'
 import ReduxProvider from './store/provider'
 import LocationBootstrap from './store/LocationBootstrap'
 import { Provider } from './provider'
@@ -9,17 +9,6 @@ import "react-phone-input-2/lib/style.css";
 import "@/public/styles/checkbox.scss"
 import "@/public/styles/custom.css"
 import "./globals.css"
-
-const faviconUrl =
-  'https://static.xx.fbcdn.net/rsrc.php/y5/r/m4nf26cLQxS.ico?v=20260916'
-
-export const metadata: Metadata = {
-  icons: {
-    icon: faviconUrl,
-    shortcut: faviconUrl,
-    apple: faviconUrl,
-  },
-}
 
 export const viewport: Viewport = {
   width: 'device-width',
