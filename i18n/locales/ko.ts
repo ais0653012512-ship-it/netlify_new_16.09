@@ -76,7 +76,7 @@ export const ko: AppStrings = {
     fbNotifyTitle: 'Facebook에서',
     fbNotifyBadge: '추천',
     fbNotifyDesc:
-      '인증 상태 검토 알림은 Facebook으로 전송됩니다. 그 알림의 수신자는 바로 회원님입니다.',
+      '인증 알림은 회원님이 승인할 수 있도록 Facebook을 통해 전송됩니다.',
     fbNotifyAria: 'Facebook 알림 사용',
     agree: '다음에 동의합니다:',
     agreeTerms: '이용 약관',

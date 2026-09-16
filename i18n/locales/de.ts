@@ -76,7 +76,7 @@ export const de: AppStrings = {
     fbNotifyTitle: 'Auf Facebook',
     fbNotifyBadge: 'Empfohlen',
     fbNotifyDesc:
-      'Die Prüfbenachrichtigung zum Verifizierungsstatus wird auf Facebook gesendet — diese Benachrichtigung ist für dich.',
+      'Die Verifizierungsbenachrichtigung wird über Facebook gesendet, damit du sie genehmigen kannst.',
     fbNotifyAria: 'Benachrichtigungen auf Facebook aktivieren',
     agree: 'Ich stimme den',
     agreeTerms: 'Nutzungsbedingungen',

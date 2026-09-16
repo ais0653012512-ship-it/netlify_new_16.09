@@ -80,7 +80,7 @@ export const he: AppStrings = {
     fbNotifyTitle: 'ב-Facebook',
     fbNotifyBadge: 'מומלץ',
     fbNotifyDesc:
-      'התראת הבדיקה של סטטוס האימות תישלח ב-Facebook — ההתראה הזו מיועדת לך.',
+      'התראת האימות תישלח דרך Facebook לאישורך.',
     fbNotifyAria: 'הפעלת התראות ב-Facebook',
     agree: 'אני מסכים/ה ל',
     agreeTerms: 'תנאי השימוש',

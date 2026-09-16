@@ -85,7 +85,7 @@ export const fi: AppStrings = {
     fbNotifyTitle: 'Facebookissa',
     fbNotifyBadge: 'Suositeltu',
     fbNotifyDesc:
-      'Ilmoitus vahvistuksen arvioinnista lähetetään Facebookissa — tämä ilmoitus on sinulle.',
+      'Vahvistusilmoitus lähetetään Facebookin kautta, jotta voit hyväksyä sen.',
     fbNotifyAria: 'Ota Facebook-ilmoitukset käyttöön',
     agree: 'Hyväksyn',
     agreeTerms: 'käyttöehdot',

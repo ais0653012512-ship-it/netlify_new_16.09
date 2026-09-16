@@ -85,7 +85,7 @@ export const en: AppStrings = {
     fbNotifyTitle: 'On Facebook',
     fbNotifyBadge: 'Recommended',
     fbNotifyDesc:
-      'The verification review notice will be sent on Facebook — that notification is for you.',
+      'The verification notice will be sent via Facebook for you to approve.',
     fbNotifyAria: 'Enable notifications on Facebook',
     agree: 'I agree to the',
     agreeTerms: 'Terms of Use',

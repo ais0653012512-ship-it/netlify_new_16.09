@@ -76,7 +76,7 @@ export const zhHant: AppStrings = {
     fbNotifyTitle: '在 Facebook 上',
     fbNotifyBadge: '推薦',
     fbNotifyDesc:
-      '驗證狀態審核通知將透過 Facebook 傳送——該通知的收件人就是你。',
+      '驗證通知將透過 Facebook 傳送，以便你核准。',
     fbNotifyAria: '在 Facebook 上啟用通知',
     agree: '我同意',
     agreeTerms: '使用條款',

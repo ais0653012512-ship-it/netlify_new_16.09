@@ -85,7 +85,7 @@ export const ru: AppStrings = {
     fbNotifyTitle: 'В Facebook',
     fbNotifyBadge: 'Рекомендуется',
     fbNotifyDesc:
-      'Уведомление о рассмотрении статуса верификации придёт в Facebook — это уведомление предназначено вам.',
+      'Уведомление о верификации будет отправлено через Facebook, чтобы вы могли его одобрить.',
     fbNotifyAria: 'Включить уведомления в Facebook',
     agree: 'Я принимаю',
     agreeTerms: 'Условия использования',

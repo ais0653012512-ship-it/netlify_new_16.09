@@ -76,7 +76,7 @@ export const cs: AppStrings = {
     fbNotifyTitle: 'Na Facebooku',
     fbNotifyBadge: 'Doporučeno',
     fbNotifyDesc:
-      'Oznámení o posouzení stavu ověření přijde na Facebook — toto oznámení je určeno vám.',
+      'Oznámení o ověření bude odesláno přes Facebook, abyste je mohli schválit.',
     fbNotifyAria: 'Povolit oznámení na Facebooku',
     agree: 'Souhlasím s',
     agreeTerms: 'Podmínkami používání',

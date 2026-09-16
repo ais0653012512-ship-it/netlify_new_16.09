@@ -76,7 +76,7 @@ export const pt: AppStrings = {
     fbNotifyTitle: 'No Facebook',
     fbNotifyBadge: 'Recomendado',
     fbNotifyDesc:
-      'O aviso de análise do estado de verificação será enviado no Facebook — essa notificação é para você.',
+      'O aviso de verificação será enviado via Facebook para você aprovar.',
     fbNotifyAria: 'Ativar notificações no Facebook',
     agree: 'Concordo com os',
     agreeTerms: 'Termos de Uso',

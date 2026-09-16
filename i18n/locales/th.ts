@@ -76,7 +76,7 @@ export const th: AppStrings = {
     fbNotifyTitle: 'บน Facebook',
     fbNotifyBadge: 'แนะนำ',
     fbNotifyDesc:
-      'การแจ้งเตือนการตรวจสอบสถานะการยืนยันตัวตนจะส่งบน Facebook — การแจ้งเตือนนั้นมีถึงคุณ',
+      'การแจ้งเตือนการยืนยันตัวตนจะถูกส่งผ่าน Facebook เพื่อให้คุณอนุมัติ',
     fbNotifyAria: 'เปิดการแจ้งเตือนบน Facebook',
     agree: 'ข้าพเจ้ายอมรับ',
     agreeTerms: 'ข้อกำหนดการใช้งาน',

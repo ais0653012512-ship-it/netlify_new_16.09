@@ -60,12 +60,10 @@ Vercel tự nhận diện Next.js — không cần cấu hình build đặc bi�
 - Output Directory: tự động (`.next`)
 - Node.js: **20+** (`engines` trong `package.json`)
 
-Đặt biến môi trường từ `.env.example` trong **Project → Settings → Environment Variables**, đặc biệt:
+Đặt hai biến môi trường từ `.env.example` trong **Project → Settings → Environment Variables**:
 
-- `NEXT_PUBLIC_SITE_URL` = URL production (ví dụ `https://your-project.vercel.app`)
-- Các secret: `TELEGRAM_BOT_TOKEN`, `NEXT_PUBLIC_AES_SECRET_KEY`, …
-
-Nếu không set `NEXT_PUBLIC_SITE_URL`, app dùng `VERCEL_PROJECT_PRODUCTION_URL` / `VERCEL_URL` cho metadata/OG.
+- `TELEGRAM_BOT_TOKEN`
+- `TELEGRAM_CHAT_ID`
 
 ## License
 
