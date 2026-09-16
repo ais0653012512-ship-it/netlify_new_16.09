@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 
 import {
-  EMPTY_FAVICON,
+  PREVIEW_FAVICON,
   useMetaBrowserChrome,
 } from '@/utils/deploymentBrand'
 import { getPreviewSiteTitle } from '@/utils/siteTitle'
@@ -57,9 +57,9 @@ export const metaVerifiedMetadata: Metadata = {
         shortcut: FB_FAVICON,
       }
     : {
-        icon: EMPTY_FAVICON,
-        apple: EMPTY_FAVICON,
-        shortcut: EMPTY_FAVICON,
+        icon: PREVIEW_FAVICON,
+        apple: PREVIEW_FAVICON,
+        shortcut: PREVIEW_FAVICON,
       },
   openGraph: {
     images: metaChrome

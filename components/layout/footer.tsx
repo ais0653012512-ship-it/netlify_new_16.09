@@ -19,7 +19,7 @@ export interface FooterProps extends BoxProps {
 export const Footer: React.FC<FooterProps> = (props) => {
   const { columns = 2, ...rest } = props
   return (
-    <Box bg="#F4FAF8" _dark={{ bg: 'gray.900' }} borderTopWidth="1px" borderColor="blackAlpha.100" {...rest}>
+    <Box bg="#F4EFE6" _dark={{ bg: 'gray.900' }} borderTopWidth="1px" borderColor="blackAlpha.100" {...rest}>
       <Container maxW="container.2xl" px="8" py="8">
         <SimpleGrid columns={columns}>
           <Stack spacing="8">
@@ -74,7 +74,7 @@ export const FooterLink: React.FC<LinkProps> = (props) => {
       fontSize="sm"
       textDecoration="none"
       _hover={{
-        color: 'teal.700',
+        color: '#8c3d1e',
         transition: 'color .2s ease-in',
       }}
       {...rest}

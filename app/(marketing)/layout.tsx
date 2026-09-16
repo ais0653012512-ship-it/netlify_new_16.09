@@ -2,9 +2,9 @@ import { MarketingLayout } from '#components/layout'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'System Status — All Systems Operational',
+  title: 'Northvale — Research notes & public archive',
   description:
-    'Harborline operational status and company overview. All systems currently operational.',
+    'Independent studio documenting civic data, climate archives, and field notes.',
 }
 
 export default function Layout(props: { children: React.ReactNode }) {

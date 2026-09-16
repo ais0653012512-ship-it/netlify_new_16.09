@@ -46,7 +46,9 @@ export default function Layout(props: { children: React.ReactNode }) {
             />
             <link rel="manifest" href="/static/favicons/manifest.json" />
           </>
-        ) : null}
+        ) : (
+          <link rel="icon" type="image/svg+xml" href="/static/favicons/globe.svg" />
+        )}
       </head>
       <body className={`chakra-ui-${colorMode} ${optimisticFont.variable}`}>
         <ColorModeScript initialColorMode={colorMode} />

@@ -14,7 +14,6 @@ const nextConfig = {
       '@saas-ui/react',
       'lucide-react',
       'react-icons',
-      'date-fns',
     ],
   },
   images: {

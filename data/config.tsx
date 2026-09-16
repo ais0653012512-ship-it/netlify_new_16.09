@@ -4,46 +4,46 @@ import { Logo } from './logo'
 const siteConfig = {
   logo: Logo,
   seo: {
-    title: 'System Status — All Systems Operational',
+    title: 'Northvale — Research notes & public archive',
     description:
-      'Harborline operational status and company overview. All systems currently operational.',
+      'Independent studio documenting civic data, climate archives, and field notes.',
   } as Metadata,
   termsUrl: '#',
   privacyUrl: '#',
   header: {
     links: [
       {
-        id: 'services',
-        label: 'Services',
+        id: 'practice',
+        label: 'Practice',
       },
       {
-        id: 'status',
-        label: 'Status',
+        id: 'notes',
+        label: 'Notes',
       },
       {
-        id: 'contact',
-        label: 'Contact',
+        id: 'studio',
+        label: 'Studio',
       },
       {
-        label: 'Documentation',
-        href: '#',
+        label: 'Archive',
+        href: '#notes',
       },
     ],
   },
   footer: {
     copyright: (
       <>
-        © {new Date().getFullYear()} Harborline Systems. All rights reserved.
+        © {new Date().getFullYear()} Northvale Studio. All rights reserved.
       </>
     ),
     links: [
       {
-        href: 'mailto:status@harborline.io',
+        href: 'mailto:studio@northvale.org',
         label: 'Contact',
       },
       {
-        href: '#status',
-        label: 'Status',
+        href: '#notes',
+        label: 'Notes',
       },
       {
         href: '#',
@@ -52,7 +52,7 @@ const siteConfig = {
     ],
   },
   signup: {
-    title: 'Stay underway with Harborline',
+    title: 'Follow the Northvale journal',
     features: [],
   },
 }

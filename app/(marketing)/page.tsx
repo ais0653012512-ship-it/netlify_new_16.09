@@ -7,57 +7,50 @@ import * as React from 'react'
 
 import { FallInPlace } from '#components/motion/fall-in-place'
 
-import './harborline.css'
+import './northvale.css'
 
 const Home: NextPage = () => {
   return (
-    <Box className="hl-root">
+    <Box className="nv-root">
       <HeroSection />
-      <ServicesSection />
-      <StatusSection />
-      <ContactSection />
+      <PracticeSection />
+      <NotesSection />
+      <StudioSection />
     </Box>
   )
 }
 
 const HeroSection: React.FC = () => {
   return (
-    <Box as="section" className="hl-hero" id="home">
-      <div className="hl-hero__atmosphere" aria-hidden />
-      <div className="hl-hero__grain" aria-hidden />
-      <Container maxW="container.xl" className="hl-hero__inner">
-        <Stack spacing={{ base: 6, md: 8 }} maxW="720px">
+    <Box as="section" className="nv-hero" id="home">
+      <div className="nv-hero__rule" aria-hidden />
+      <Container maxW="container.xl" className="nv-hero__inner">
+        <Stack spacing={0} maxW="760px">
           <FallInPlace>
-            <p className="hl-brand">Harborline</p>
+            <p className="nv-kicker">Independent studio · Est. 2014</p>
           </FallInPlace>
-
-          <FallInPlace delay={0.25}>
-            <div className="hl-status-row" role="status">
-              <span className="hl-status-dot" aria-hidden />
-              <span className="hl-status-label">All Systems Operational</span>
-            </div>
+          <FallInPlace delay={0.15}>
+            <p className="nv-brand">Northvale</p>
           </FallInPlace>
-
-          <FallInPlace delay={0.4}>
-            <Heading as="h1" className="hl-headline">
-              Infrastructure that stays underway.
+          <FallInPlace delay={0.35}>
+            <Heading as="h1" className="nv-headline">
+              Research notes, maps, and public records—kept readable.
             </Heading>
           </FallInPlace>
-
-          <FallInPlace delay={0.55}>
-            <Text className="hl-lead">
-              Harborline runs resilient edge networks and status-aware platforms for teams that
-              need calm reliability—not noise.
+          <FallInPlace delay={0.5}>
+            <Text className="nv-lead">
+              Northvale is a small studio documenting civic data, climate archives, and
+              field notes. We publish slowly, cite sources, and leave the work open to
+              revisit.
             </Text>
           </FallInPlace>
-
-          <FallInPlace delay={0.7}>
-            <Flex className="hl-cta-row" gap={3} flexWrap="wrap">
-              <Link href="#contact" className="hl-btn hl-btn--primary">
-                Contact
+          <FallInPlace delay={0.65}>
+            <Flex className="nv-cta-row" gap={3} flexWrap="wrap">
+              <Link href="#notes" className="nv-btn nv-btn--primary">
+                Read the notes
               </Link>
-              <Link href="#" className="hl-btn hl-btn--ghost">
-                Documentation
+              <Link href="#studio" className="nv-btn nv-btn--ghost">
+                Visit the studio
               </Link>
             </Flex>
           </FallInPlace>
@@ -67,65 +60,73 @@ const HeroSection: React.FC = () => {
   )
 }
 
-const ServicesSection: React.FC = () => {
+const PracticeSection: React.FC = () => {
   return (
-    <Box as="section" id="services" className="hl-section">
+    <Box as="section" id="practice" className="nv-section">
       <Container maxW="container.lg">
         <FallInPlace>
-          <p className="hl-section-kicker">Services</p>
-          <Heading as="h2" className="hl-section-title">
-            Built for continuous operations
+          <p className="nv-section-kicker">Practice</p>
+          <Heading as="h2" className="nv-section-title">
+            How the work is made
           </Heading>
-          <Text className="hl-section-lead">
-            Edge routing, observability hooks, and failover paths designed so your customers
-            never notice the weather.
+          <Text className="nv-section-lead">
+            Three threads run through every Northvale project: evidence, place, and a
+            public trail of revisions.
           </Text>
         </FallInPlace>
-        <div className="hl-services">
-          <div>
-            <h3>Edge delivery</h3>
-            <p>Regional points of presence with health-checked routing and graceful drain.</p>
-          </div>
-          <div>
-            <h3>Platform uptime</h3>
-            <p>Status surfaces, incident chronology, and clear recovery windows for operators.</p>
-          </div>
-          <div>
-            <h3>Secure connectivity</h3>
-            <p>Encrypted transport defaults and scoped access for partner integrations.</p>
-          </div>
+        <div className="nv-grid">
+          <article className="nv-card">
+            <h3>Field records</h3>
+            <p>
+              Interviews, photographs, and site notes compiled with dates, locations, and
+              original filenames intact.
+            </p>
+          </article>
+          <article className="nv-card">
+            <h3>Civic maps</h3>
+            <p>
+              Layered maps of land use, watersheds, and public rights-of-way—drawn for
+              reading, not dashboards.
+            </p>
+          </article>
+          <article className="nv-card">
+            <h3>Open citations</h3>
+            <p>
+              Sources stay visible. When a figure changes, the previous version remains
+              in the archive.
+            </p>
+          </article>
         </div>
       </Container>
     </Box>
   )
 }
 
-const StatusSection: React.FC = () => {
+const NotesSection: React.FC = () => {
   return (
-    <Box as="section" id="status" className="hl-section hl-section--status">
+    <Box as="section" id="notes" className="nv-section nv-section--notes">
       <Container maxW="container.lg">
         <FallInPlace>
-          <p className="hl-section-kicker">Reliability</p>
-          <Heading as="h2" className="hl-section-title">
-            System status
+          <p className="nv-section-kicker">Journal</p>
+          <Heading as="h2" className="nv-section-title">
+            Recent notes
           </Heading>
-          <Text className="hl-section-lead">
-            Live operational summary for Harborline production systems. No open incidents at this
-            time.
+          <Text className="nv-section-lead">
+            Short entries from the current season. Longer papers live in the archive.
           </Text>
         </FallInPlace>
-        <ul className="hl-status-list">
+        <ul className="nv-notes">
           <li>
-            <span>Core API</span>
-            <span className="hl-pill">Operational</span>
+            <strong>Tide gauges along the lower Columbia</strong>
+            <span>Mar 2026</span>
           </li>
           <li>
-            <span>Edge network</span>
-            <span className="hl-pill">Operational</span>
+            <strong>A working index of county plat maps</strong>
+            <span>Jan 2026</span>
           </li>
           <li>
-            <span>Status &amp; alerts</span>
-            <span className="hl-pill">Operational</span>
+            <strong>Notes from the Deschutes field week</strong>
+            <span>Nov 2025</span>
           </li>
         </ul>
       </Container>
@@ -133,21 +134,21 @@ const StatusSection: React.FC = () => {
   )
 }
 
-const ContactSection: React.FC = () => {
+const StudioSection: React.FC = () => {
   return (
-    <Box as="section" id="contact" className="hl-section">
+    <Box as="section" id="studio" className="nv-section">
       <Container maxW="container.lg">
         <FallInPlace>
-          <p className="hl-section-kicker">Contact</p>
-          <Heading as="h2" className="hl-section-title">
-            Talk to operations
+          <p className="nv-section-kicker">Studio</p>
+          <Heading as="h2" className="nv-section-title">
+            Write to Northvale
           </Heading>
-          <Text className="hl-section-lead">
-            For status questions or partnership inquiries, reach the Harborline desk. We respond
-            during business hours in your region.
+          <Text className="nv-section-lead">
+            Collaborations, archive requests, and visiting hours. We reply on weekdays,
+            usually within a few days.
           </Text>
-          <Link href="mailto:status@harborline.io" className="hl-btn hl-btn--primary">
-            status@harborline.io
+          <Link href="mailto:studio@northvale.org" className="nv-btn nv-btn--primary">
+            studio@northvale.org
           </Link>
         </FallInPlace>
       </Container>

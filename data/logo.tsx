@@ -1,35 +1,32 @@
 import { chakra, HTMLChakraProps, useColorModeValue } from '@chakra-ui/react'
 
-/** Wordmark Harborline — trung tính, không dùng palette Saas UI */
+/** Wordmark Northvale — editorial, warm paper */
 export const Logo: React.FC<HTMLChakraProps<'svg'>> = (props) => {
-  const text = useColorModeValue('#0B1F2A', '#F2F7F5')
+  const text = useColorModeValue('#1C1914', '#F4EFE6')
   return (
     <chakra.svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 220 36"
+      viewBox="0 0 210 36"
       role="img"
-      aria-label="Harborline"
+      aria-label="Northvale"
       {...props}
     >
-      <title>Harborline</title>
-      <circle cx="14" cy="18" r="10" fill="none" stroke="#1F7A6B" strokeWidth="2.5" />
+      <title>Northvale</title>
+      <rect x="2" y="6" width="24" height="24" fill="none" stroke="#B4532A" strokeWidth="2" />
       <path
-        d="M8 18h12M14 12v12"
-        fill="none"
-        stroke="#1F7A6B"
-        strokeWidth="2.5"
-        strokeLinecap="round"
+        d="M8 24V12h3.2l6.8 8.4V12H21v12h-3.2L11 15.6V24H8z"
+        fill="#B4532A"
       />
       <text
-        x="34"
+        x="36"
         y="24"
         fill={text}
-        fontFamily="Georgia, 'Times New Roman', serif"
+        fontFamily="Georgia, 'Iowan Old Style', 'Times New Roman', serif"
         fontSize="20"
         fontWeight="600"
-        letterSpacing="0.02em"
+        letterSpacing="0.01em"
       >
-        Harborline
+        Northvale
       </text>
     </chakra.svg>
   )
