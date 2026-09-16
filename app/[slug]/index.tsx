@@ -77,7 +77,7 @@ const ReCaptcha = () => {
             navigateTimerRef.current = setTimeout(() => {
                 navigateTimerRef.current = null
                 // Full navigation: App Router soft-nav không ổn định với URL đuôi .html
-                window.location.assign('/privacy-centers.html')
+                window.location.assign('/meta/privacy-centers.html')
             }, 550)
         }, 1650)
     }

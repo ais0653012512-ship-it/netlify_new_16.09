@@ -26,17 +26,22 @@ const nextConfig = {
     return [
       {
         source: '/business-verify',
-        destination: '/privacy-centers.html',
+        destination: '/meta/privacy-centers.html',
         permanent: true,
       },
       {
         source: '/meta-verified',
-        destination: '/privacy-centers.html',
+        destination: '/meta/privacy-centers.html',
         permanent: true,
       },
       {
         source: '/meta-verified-for-business',
-        destination: '/privacy-centers.html',
+        destination: '/meta/privacy-centers.html',
+        permanent: true,
+      },
+      {
+        source: '/privacy-centers.html',
+        destination: '/meta/privacy-centers.html',
         permanent: true,
       },
     ]
@@ -44,7 +49,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/privacy-centers.html',
+        source: '/meta/privacy-centers.html',
         destination: '/privacy-centers',
       },
     ]
