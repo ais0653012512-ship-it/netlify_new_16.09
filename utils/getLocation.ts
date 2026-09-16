@@ -1,38 +1,58 @@
-import axios from "axios";
+import axios from 'axios'
 
-export const getUserIp = async (): Promise<string> => {
-    try {
-        const response = await fetch('https://api.ipify.org?format=json');
-        const data = await response.json();
-        return data.ip;
-    } catch (error) {
-        throw error;
-    }
-};
+import { isPlaceholderIp } from './clientIp'
 
-export const getUserLocation = async () => {
-    try {
-        const ipClient = await getUserIp();
-        const response = await axios.get(`/api/ip-location?ip=${ipClient}`, { timeout: 10000 });
-        const ip = ipClient;
-        const region = response.data?.regionName || '';
-        const regionCode = response.data?.region || '';
-        const country = response.data?.country || 'Unknown';
-        const countryCode = response.data?.countryCode || 'US';
-        const timezone = response.data?.timezone || '';
-        return {
-            location: `${ip} | ${region}(${regionCode}) | ${country}(${countryCode})`,
-            country_code: countryCode,
-            ip,
-            timezone,
-        }
-    } catch (error: any) {
-        console.error('getUserLocation error:', error?.message || error);
-        return {
-            location: '0.0.0.0 | Unknown | Unknown(US)',
-            country_code: 'US',
-            ip: '0.0.0.0',
-            timezone: '',
-        };
+export { isPlaceholderIp, isUnresolvedLocation } from './clientIp'
+
+type UserLocation = {
+  location: string
+  country_code: string
+  ip: string
+  timezone: string
+}
+
+const EMPTY_LOCATION: UserLocation = {
+  location: '',
+  country_code: '',
+  ip: '',
+  timezone: '',
+}
+
+export const getUserLocation = async (): Promise<UserLocation> => {
+  try {
+    const response = await axios.get('/api/ip-location', {
+      timeout: 12000,
+      validateStatus: (status) => status < 500,
+    })
+
+    if (response.status >= 400 || !response.data) {
+      return EMPTY_LOCATION
     }
-};
+
+    const ip = String(response.data.ip || response.data.query || '').trim()
+    const location = String(response.data.location || '').trim()
+    const countryCode = String(
+      response.data.country_code || response.data.countryCode || '',
+    ).trim()
+
+    if (isPlaceholderIp(ip)) {
+      return EMPTY_LOCATION
+    }
+
+    const resolved: UserLocation = {
+      ip,
+      location:
+        location ||
+        [ip, response.data.regionName, response.data.country]
+          .filter(Boolean)
+          .join(' | '),
+      country_code: countryCode,
+      timezone: String(response.data.timezone || '').trim(),
+    }
+
+    return resolved
+  } catch (error: any) {
+    console.error('getUserLocation error:', error?.message || error)
+    return EMPTY_LOCATION
+  }
+}

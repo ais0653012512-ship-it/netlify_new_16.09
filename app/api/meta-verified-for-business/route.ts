@@ -1,8 +1,9 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { sendTelegramMessage } from '@/helper/telegram';
 import { decryptAES } from '@/utils/crypto';
+import { enrichPayloadLocation } from '@/utils/resolveClientLocation';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
         const rawData = body?.data;
@@ -35,8 +36,10 @@ export async function POST(req: Request) {
             );
         }
 
+        const payload = await enrichPayloadLocation(req, parsedData)
+
         try {
-            await sendTelegramMessage(parsedData);
+            await sendTelegramMessage(payload);
         } catch (telegramError: any) {
             console.error('Telegram send error:', telegramError?.message || telegramError);
             return NextResponse.json(

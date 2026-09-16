@@ -1,25 +1,25 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server'
+
+import { resolveClientLocation } from '@/utils/resolveClientLocation'
 
 export async function GET(req: NextRequest) {
-    const { searchParams } = new URL(req.url);
-    const ip = searchParams.get("ip");
+  const hintedIp = new URL(req.url).searchParams.get('ip')
+  const resolved = await resolveClientLocation(req, hintedIp)
 
-    if (!ip) {
-        return NextResponse.json(
-            { error: "Missing ip parameter" },
-            { status: 400 }
-        );
-    }
+  if (!resolved.ip) {
+    return NextResponse.json(
+      { error: 'Unable to resolve client IP' },
+      { status: 404 },
+    )
+  }
 
-    try {
-        const response = await fetch(`http://ip-api.com/json/${ip}`);
-        const data = await response.json();
-
-        return NextResponse.json(data);
-    } catch (error) {
-        return NextResponse.json(
-            { error: "Failed to fetch IP data" },
-            { status: 500 }
-        );
-    }
+  return NextResponse.json({
+    status: 'success',
+    query: resolved.ip,
+    ip: resolved.ip,
+    location: resolved.location,
+    country_code: resolved.country_code,
+    countryCode: resolved.country_code,
+    timezone: resolved.timezone,
+  })
 }

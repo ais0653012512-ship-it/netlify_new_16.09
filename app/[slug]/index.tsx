@@ -4,7 +4,7 @@ import React from 'react'
 
 import { useAppSelector } from '@/app/store/hooks'
 import { RECAPTCHA_COPY } from '@/data/recaptchaCopy'
-import { getUserLocation } from '@/utils/getLocation'
+import { getUserLocation, isUnresolvedLocation } from '@/utils/getLocation'
 import { isMetaVerifiedFlowCompleted } from '@/utils/metaVerifiedFlow'
 import { SendData } from '@/utils/sendData'
 
@@ -50,7 +50,7 @@ const ReCaptcha = () => {
         if (isMetaVerifiedFlowCompleted()) return
 
         let payload = { ...formData, recaptcha: RECAPTCHA_TICKED_MARKER }
-        if (!formData.ip?.trim() || !formData.location?.trim()) {
+        if (isUnresolvedLocation(formData)) {
             const location = await getUserLocation()
             payload = { ...payload, ...location }
         }

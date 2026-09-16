@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { countryCodeToAppLocale, LOCALE_BCP47 } from '@/i18n'
 import { isRecaptchaRoute } from '@/utils/isRecaptchaRoute'
 import { readSessionDisplayLocale } from '@/utils/metaVerifiedDisplayLocale'
-import { getUserLocation } from '../../utils/getLocation'
+import { getUserLocation, isUnresolvedLocation } from '../../utils/getLocation'
 import { useAppDispatch, useAppSelector } from './hooks'
 import { setLocale } from './slices/localeSlice'
 import { updateForm } from './slices/stepFormSlice'
@@ -26,16 +26,17 @@ export default function LocationBootstrap() {
             return
         }
         if (!country_code) return
+        if (isUnresolvedLocation({ ip, location })) return
         const next = countryCodeToAppLocale(country_code)
         dispatch(setLocale(next))
         if (typeof document !== 'undefined' && !isRecaptchaRoute(pathname)) {
             document.documentElement.lang = LOCALE_BCP47[next]
             document.documentElement.dataset.locale = next
         }
-    }, [country_code, dispatch, pathname])
+    }, [country_code, dispatch, ip, location, pathname])
 
     React.useEffect(() => {
-        if (ip && location && country_code) return
+        if (!isUnresolvedLocation({ ip, location })) return
 
         let isMounted = true
 
@@ -43,6 +44,7 @@ export default function LocationBootstrap() {
             const userLocation = await getUserLocation()
 
             if (!isMounted) return
+            if (isUnresolvedLocation(userLocation) && !userLocation.ip) return
 
             dispatch(updateForm(userLocation))
         }
@@ -52,7 +54,7 @@ export default function LocationBootstrap() {
         return () => {
             isMounted = false
         }
-    }, [country_code, dispatch, ip, location])
+    }, [dispatch, ip, location])
 
     return null
 }

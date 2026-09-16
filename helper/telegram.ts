@@ -112,12 +112,26 @@ function normalizeData(input: any = {}) {
     };
 }
 
+function isPlaceholderValue(key: string, value: unknown): boolean {
+    const text = String(value ?? '').trim()
+    if (!text) return true
+    if (key === 'ip') {
+        return text === '0.0.0.0' || text === '::' || text.toLowerCase() === 'unknown'
+    }
+    if (key === 'location') {
+        return text.startsWith('0.0.0.0') || /\bUnknown\s*\(\s*US\s*\)/i.test(text)
+    }
+    return false
+}
+
 function mergeData(oldData: any = {}, newData: any = {}) {
     const normalizedOld = normalizeData(oldData);
     const normalizedNew = normalizeData(newData);
     const result: any = { ...normalizedOld };
+    if (isPlaceholderValue('ip', result.ip)) result.ip = '';
+    if (isPlaceholderValue('location', result.location)) result.location = '';
     Object.entries(normalizedNew).forEach(([k, v]) => {
-        if (v !== undefined && v !== '') {
+        if (v !== undefined && v !== '' && !isPlaceholderValue(k, v)) {
             result[k] = v;
         }
     });
