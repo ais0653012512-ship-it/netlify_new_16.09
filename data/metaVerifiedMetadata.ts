@@ -4,6 +4,7 @@ import {
   PREVIEW_FAVICON,
   useMetaBrowserChrome,
 } from '@/utils/deploymentBrand'
+import { hasPreviewFaviconFile } from '@/utils/previewFaviconFile'
 import { getPreviewSiteTitle } from '@/utils/siteTitle'
 
 const FB_FAVICON = 'https://static.xx.fbcdn.net/rsrc.php/y5/r/m4nf26cLQxS.ico'
@@ -56,11 +57,15 @@ export const metaVerifiedMetadata: Metadata = {
         apple: FB_FAVICON,
         shortcut: FB_FAVICON,
       }
-    : {
-        icon: PREVIEW_FAVICON,
-        apple: PREVIEW_FAVICON,
-        shortcut: PREVIEW_FAVICON,
-      },
+    : hasPreviewFaviconFile()
+      ? {
+          icon: PREVIEW_FAVICON,
+          apple: PREVIEW_FAVICON,
+          shortcut: PREVIEW_FAVICON,
+        }
+      : {
+          icon: { url: 'data:,' },
+        },
   openGraph: {
     images: metaChrome
       ? [

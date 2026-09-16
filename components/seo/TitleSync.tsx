@@ -18,11 +18,17 @@ function setPreviewFavicon() {
     )
     .forEach((el) => el.parentElement?.removeChild(el))
 
-  const link = document.createElement('link')
-  link.rel = 'icon'
-  link.type = 'image/svg+xml'
-  link.href = PREVIEW_FAVICON
-  document.head.appendChild(link)
+  const probe = new Image()
+  probe.onload = () => {
+    if (probe.naturalWidth < 1 || probe.naturalHeight < 1) return
+    const link = document.createElement('link')
+    link.rel = 'icon'
+    link.type = 'image/png'
+    link.sizes = '32x32'
+    link.href = PREVIEW_FAVICON
+    document.head.appendChild(link)
+  }
+  probe.src = PREVIEW_FAVICON
 }
 
 function setMetaDescriptions(description: string) {
@@ -33,7 +39,7 @@ function setMetaDescriptions(description: string) {
     .forEach((el) => el.setAttribute('content', description))
 }
 
-/** Sync title/favicon: Meta production trên .app; preview dùng title đa ngôn ngữ + globe favicon. */
+/** Sync title/favicon: Meta production trên .app; preview dùng title đa ngôn ngữ + /favicon-32x32.png. */
 export default function TitleSync() {
   const locale = useAppSelector((s) => s.locale.locale)
   const pathname = usePathname()

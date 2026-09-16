@@ -1,6 +1,6 @@
 /**
  * Chrome trình duyệt (favicon Meta) chỉ trên nhánh gốc production (.app).
- * Preview / nhánh khác (*.vercel.app): title kiểu “Meta đã xác minh…” theo locale + globe favicon.
+ * Preview / nhánh khác (*.vercel.app): title theo locale + favicon từ public/favicon-32x32.png (có thể để trống).
  */
 export function useMetaBrowserChrome(): boolean {
   // Mỗi deploy Vercel build riêng — preview ≠ production
@@ -16,5 +16,5 @@ export function isPrimaryAppHost(hostname: string): boolean {
   return h.endsWith('.app')
 }
 
-/** Favicon quả địa cầu cho nhánh preview (không dùng favicon Meta). */
-export const PREVIEW_FAVICON = '/static/favicons/globe.svg'
+/** Favicon preview: thay file `public/favicon-32x32.png`. Không có file / file trống → không icon. */
+export const PREVIEW_FAVICON = '/favicon-32x32.png'

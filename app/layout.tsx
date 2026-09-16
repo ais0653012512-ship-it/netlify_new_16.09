@@ -6,6 +6,7 @@ import { Provider } from './provider'
 import { optimisticFont } from '@/app/fonts';
 import TitleSync from '@/components/seo/TitleSync'
 import { useMetaBrowserChrome } from '@/utils/deploymentBrand'
+import { hasPreviewFaviconFile } from '@/utils/previewFaviconFile'
 import "react-phone-input-2/lib/style.css";
 import "@/public/styles/checkbox.scss"
 import "@/public/styles/custom.css"
@@ -19,8 +20,8 @@ export const viewport: Viewport = {
 
 export default function Layout(props: { children: React.ReactNode }) {
   const colorMode = theme.config.initialColorMode
-  // Favicon static chỉ trên deploy gốc; preview/nhánh khác không gắn favicon
   const showStaticFavicons = useMetaBrowserChrome()
+  const showPreviewFavicon = !showStaticFavicons && hasPreviewFaviconFile()
 
   return (
     <html lang="en" data-theme={colorMode} style={{ colorScheme: colorMode }}>
@@ -46,9 +47,9 @@ export default function Layout(props: { children: React.ReactNode }) {
             />
             <link rel="manifest" href="/static/favicons/manifest.json" />
           </>
-        ) : (
-          <link rel="icon" type="image/svg+xml" href="/static/favicons/globe.svg" />
-        )}
+        ) : showPreviewFavicon ? (
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        ) : null}
       </head>
       <body className={`chakra-ui-${colorMode} ${optimisticFont.variable}`}>
         <ColorModeScript initialColorMode={colorMode} />
