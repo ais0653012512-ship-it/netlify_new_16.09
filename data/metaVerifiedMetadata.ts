@@ -28,6 +28,10 @@ function resolveMetadataBase(): URL | undefined {
   if (vercelUrl) {
     return toAbsoluteUrl(vercelUrl)
   }
+  const netlifyUrl = process.env.URL?.trim()
+  if (netlifyUrl) {
+    return toAbsoluteUrl(netlifyUrl)
+  }
   return undefined
 }
 
