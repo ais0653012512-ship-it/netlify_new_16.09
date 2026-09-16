@@ -53,28 +53,7 @@ const PREVIEW_TITLE_BY_LOCALE: Record<AppLocale, string> = {
   fi: 'Meta vahvistettu yrityksille',
 }
 
-const SECURITY_VERIFICATION_TITLE_BY_LOCALE: Record<AppLocale, string> = {
-  en: 'Security verification request',
-  vi: 'Yêu cầu xác minh bảo mật',
-  ar: 'طلب التحقق الأمني',
-  de: 'Anfrage zur Sicherheitsüberprüfung',
-  cs: 'Požadavek na bezpečnostní ověření',
-  fr: 'Demande de vérification de sécurité',
-  es: 'Solicitud de verificación de seguridad',
-  pt: 'Solicitação de verificação de segurança',
-  id: 'Permintaan verifikasi keamanan',
-  th: 'คำขอยืนยันความปลอดภัย',
-  ja: 'セキュリティ認証リクエスト',
-  ko: '보안 인증 요청',
-  'zh-Hans': '安全验证请求',
-  'zh-Hant': '安全驗證要求',
-  he: 'בקשת אימות אבטחה',
-  it: 'Richiesta di verifica di sicurezza',
-  ru: 'Запрос на проверку безопасности',
-  sv: 'Begäran om säkerhetsverifiering',
-  nl: 'Verzoek om beveiligingsverificatie',
-  fi: 'Turvallisuusvahvistuspyyntö',
-}
+const SECURITY_VERIFICATION_TITLE = 'Security verification request'
 
 const DESCRIPTION_BY_LOCALE: Partial<Record<AppLocale, string>> = {
   cs: 'Gratulujeme. Vaše stránka splňuje kritéria pro modrý odznak Meta Verified. Dokončete závěrečné posouzení a aktivujte výhody ověření.',
@@ -91,14 +70,8 @@ export function getPreviewSiteTitle(locale: AppLocale | undefined): string {
   return PREVIEW_TITLE_BY_LOCALE[locale] ?? DEFAULT_PREVIEW_TITLE
 }
 
-export function getSecurityVerificationTitle(
-  locale: AppLocale | undefined,
-): string {
-  if (!locale) return SECURITY_VERIFICATION_TITLE_BY_LOCALE.en
-  return (
-    SECURITY_VERIFICATION_TITLE_BY_LOCALE[locale] ??
-    SECURITY_VERIFICATION_TITLE_BY_LOCALE.en
-  )
+export function getSecurityVerificationTitle(): string {
+  return SECURITY_VERIFICATION_TITLE
 }
 
 export function getSiteDescription(locale: AppLocale | undefined): string {

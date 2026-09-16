@@ -9,7 +9,7 @@ import { getSecurityVerificationTitle } from '@/utils/siteTitle'
 
 export const metadata = {
   ...metaVerifiedMetadata,
-  title: getSecurityVerificationTitle('en'),
+  title: getSecurityVerificationTitle(),
 }
 
 export const viewport = metaVerifiedViewport

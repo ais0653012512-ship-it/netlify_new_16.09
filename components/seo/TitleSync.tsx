@@ -29,7 +29,7 @@ export default function TitleSync() {
     if (pathname === '/') return
 
     document.title = isRecaptchaRoute(pathname)
-      ? getSecurityVerificationTitle(locale)
+      ? getSecurityVerificationTitle()
       : getSiteTitle(locale)
     setMetaDescriptions(getSiteDescription(locale))
   }, [locale, pathname])
