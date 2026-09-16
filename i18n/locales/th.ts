@@ -55,6 +55,8 @@ export const th: AppStrings = {
   info: {
     title: 'รายละเอียดการเปิดใช้งาน',
     hint: 'กรอกข้อมูลในช่องที่จำเป็นให้ถูกต้องเพื่อเปิดใช้งาน Meta Verified ให้เสร็จสมบูรณ์',
+    sectionPersonal: 'ข้อมูลส่วนตัว',
+    sectionContact: 'ข้อมูลติดต่อ',
     fullName: 'ชื่อ–นามสกุลผู้แทน',
     fullNamePh: 'ตัวอย่าง: สมชาย ใจดี',
     email: 'อีเมลติดต่อ',

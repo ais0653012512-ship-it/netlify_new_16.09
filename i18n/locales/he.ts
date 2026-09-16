@@ -59,6 +59,8 @@ export const he: AppStrings = {
   info: {
     title: 'פרטי הפעלה',
     hint: 'אנא מלא/י במדויק את כל השדות הנדרשים כדי להשלים את הפעלת Meta Verified.',
+    sectionPersonal: 'פרטים אישיים',
+    sectionContact: 'יצירת קשר',
     fullName: 'שם מלא של נציג',
     fullNamePh: 'לדוגמה: ישראל ישראלי',
     email: 'דוא"ל ליצירת קשר',

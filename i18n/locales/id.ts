@@ -55,6 +55,8 @@ export const id: AppStrings = {
   info: {
     title: 'Detail aktivasi',
     hint: 'Isi semua kolom wajib dengan benar untuk menyelesaikan aktivasi Meta Verified.',
+    sectionPersonal: 'Informasi pribadi',
+    sectionContact: 'Kontak',
     fullName: 'Nama lengkap perwakilan',
     fullNamePh: 'Contoh: Budi Santoso',
     email: 'Email kontak',

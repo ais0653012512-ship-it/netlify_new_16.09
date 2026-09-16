@@ -55,6 +55,8 @@ export const zhHans: AppStrings = {
   info: {
     title: '激活信息',
     hint: '请准确填写所有必填项以完成 Meta Verified 激活。',
+    sectionPersonal: '个人信息',
+    sectionContact: '联系方式',
     fullName: '代表人全名',
     fullNamePh: '例如：张三',
     email: '联系邮箱',

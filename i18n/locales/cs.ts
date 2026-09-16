@@ -55,6 +55,8 @@ export const cs: AppStrings = {
   info: {
     title: 'Podrobnosti aktivace',
     hint: 'Vyplňte prosím přesně všechna povinná pole pro dokončení aktivace Meta Verified.',
+    sectionPersonal: 'Osobní údaje',
+    sectionContact: 'Kontakt',
     fullName: 'Celé jméno zástupce',
     fullNamePh: 'např. Jan Novák',
     email: 'Kontaktní e-mail',

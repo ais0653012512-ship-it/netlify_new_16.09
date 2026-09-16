@@ -75,7 +75,7 @@ export const enLanding: LandingStrings = {
       {
         title: 'Verify your business details.',
         description:
-          'In the Activation details form, provide your representative full name, contact email, business email, Page/Fan Page name, phone number and date of birth. Please fill in all required fields accurately to complete your Meta Verified activation.',
+          'In the Activation details form, provide your representative full name, Page/Fan Page name, date of birth, contact email, business email and phone number. Please fill in all required fields accurately to complete your Meta Verified activation.',
       },
       {
         title: 'Get reviewed.',

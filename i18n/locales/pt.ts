@@ -55,6 +55,8 @@ export const pt: AppStrings = {
   info: {
     title: 'Detalhes da ativação',
     hint: 'Preencha com precisão todos os campos obrigatórios para concluir a ativação do Meta Verified.',
+    sectionPersonal: 'Informações pessoais',
+    sectionContact: 'Contato',
     fullName: 'Nome completo do representante',
     fullNamePh: 'Ex.: João da Silva',
     email: 'E-mail de contato',

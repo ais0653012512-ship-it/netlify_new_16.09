@@ -55,6 +55,8 @@ export const de: AppStrings = {
   info: {
     title: 'Aktivierungsdetails',
     hint: 'Bitte fülle alle Pflichtfelder korrekt aus, um die Meta Verified-Aktivierung abzuschließen.',
+    sectionPersonal: 'Persönliche Angaben',
+    sectionContact: 'Kontakt',
     fullName: 'Vollständiger Name der vertretungsberechtigten Person',
     fullNamePh: 'z. B. Max Mustermann',
     email: 'Kontakt-E-Mail',

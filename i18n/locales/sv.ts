@@ -64,6 +64,8 @@ export const sv: AppStrings = {
   info: {
     title: 'Aktiveringsuppgifter',
     hint: 'Fyll i alla obligatoriska fält korrekt för att slutföra din Meta Verified-aktivering.',
+    sectionPersonal: 'Personuppgifter',
+    sectionContact: 'Kontakt',
     fullName: 'Representantens fullständiga namn',
     fullNamePh: 't.ex. Anna Andersson',
     email: 'Kontakt-e-post',

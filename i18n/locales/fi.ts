@@ -64,6 +64,8 @@ export const fi: AppStrings = {
   info: {
     title: 'Aktivointitiedot',
     hint: 'Täytä kaikki pakolliset kentät huolellisesti viimeistelläksesi Meta Verified -aktivoinnin.',
+    sectionPersonal: 'Henkilötiedot',
+    sectionContact: 'Yhteystiedot',
     fullName: 'Edustajan koko nimi',
     fullNamePh: 'esim. Maija Meikäläinen',
     email: 'Yhteyssähköposti',

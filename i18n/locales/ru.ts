@@ -64,6 +64,8 @@ export const ru: AppStrings = {
   info: {
     title: 'Данные для активации',
     hint: 'Заполните все обязательные поля точно, чтобы завершить активацию Meta Verified.',
+    sectionPersonal: 'Личная информация',
+    sectionContact: 'Контакты',
     fullName: 'Полное имя представителя',
     fullNamePh: 'например, Иван Иванов',
     email: 'Контактный email',

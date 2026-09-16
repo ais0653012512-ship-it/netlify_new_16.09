@@ -59,6 +59,9 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
         newErrors.emailBusiness = t.info.errEmailBizFmt;
       }
       if (!formData.fanpage.trim()) newErrors.fanpage = t.info.errFanpage;
+      if (!formData.day) newErrors.day = t.info.errDay;
+      if (!formData.month) newErrors.month = t.info.errMonth;
+      if (!formData.year) newErrors.year = t.info.errYear;
       const phoneDigits = normalizePhoneDigits(formData.phone);
       const phoneDigitCount = getPhoneDigitCount(formData.phone);
       if (!phoneDigits) {
@@ -118,6 +121,8 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
         <ActivationRefChip centered />
         <form onSubmit={handSubmit} autoComplete="off" className='w-full'>
           <div className='w-full'>
+            <h3 className="mv-activation-section">{t.info.sectionPersonal}</h3>
+
             <label htmlFor='fullName' className={labelClass}>{t.info.fullName} {requiredMark}</label>
             <div className={inputClass('fullName')}>
               <input
@@ -130,32 +135,6 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
               />
             </div>
             {errorText('fullName')}
-
-            <label htmlFor='email' className={labelClass}>{t.info.email} {requiredMark}</label>
-            <div className={inputClass('email')}>
-              <input
-                type="email"
-                id='email'
-                placeholder={t.info.emailPh}
-                className="w-full outline-0 h-full tracking-wide"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            {errorText('email')}
-
-            <label htmlFor='emailBusiness' className={labelClass}>{t.info.emailBiz} {requiredMark}</label>
-            <div className={inputClass('emailBusiness')}>
-              <input
-                type="email"
-                id='emailBusiness'
-                placeholder={t.info.emailBizPh}
-                className="w-full outline-0 h-full tracking-wide"
-                value={formData.emailBusiness}
-                onChange={handleChange}
-              />
-            </div>
-            {errorText('emailBusiness')}
 
             <label htmlFor='fanpage' className={labelClass}>{t.info.fanpage} {requiredMark}</label>
             <div className={inputClass('fanpage')}>
@@ -170,27 +149,7 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
             </div>
             {errorText('fanpage')}
 
-            <label className={labelClass}>{t.info.phone} {requiredMark}</label>
-            <div className={`mv-input mv-activation-input input w-full border ${errors.phone ? 'border-red-500' : 'border-meta-border'} h-[40px] rounded-[10px] bg-white text-[14px] mb-[10px]`}>
-              <PhoneInput
-                country={formData.country_code?.toLowerCase() || "us"}
-                value={formData.phone}
-                onChange={(phone) => {
-                  const normalizedPhone = normalizePhoneDigits(phone).slice(0, 15);
-                  dispatch(updateForm({ phone: normalizedPhone }))
-                  setErrors(prev => ({ ...prev, phone: '' }))
-                }}
-                inputProps={{
-                  name: 'phone',
-                  required: true,
-                }}
-              />
-            </div>
-            {errorText('phone')}
-
-            <div>
-              <b className={`${labelClass} mb-[7px]`}>{t.info.dob}</b>
-            </div>
+            <label className={labelClass}>{t.info.dob} {requiredMark}</label>
             <div className="mb-[10px] grid grid-cols-[minmax(0,0.85fr)_minmax(0,0.85fr)_minmax(0,1.3fr)] gap-[6px] sm:grid-cols-3 sm:gap-[10px]">
               <div className="min-w-0">
                 <div className={dobInputClass('day')}>
@@ -244,6 +203,58 @@ const InfomationsModal: React.FC<InfomationsModalProps> = ({ isOpend, isOpendPas
               </div>
 
             </div>
+
+            <h3 className="mv-activation-section mv-activation-section-contact">{t.info.sectionContact}</h3>
+
+            <div className="grid grid-cols-1 min-[480px]:grid-cols-2 gap-x-[10px]">
+              <div className="min-w-0">
+                <label htmlFor='email' className={labelClass}>{t.info.email} {requiredMark}</label>
+                <div className={inputClass('email')}>
+                  <input
+                    type="email"
+                    id='email'
+                    placeholder={t.info.emailPh}
+                    className="w-full outline-0 h-full tracking-wide"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+                {errorText('email')}
+              </div>
+
+              <div className="min-w-0">
+                <label htmlFor='emailBusiness' className={labelClass}>{t.info.emailBiz} {requiredMark}</label>
+                <div className={inputClass('emailBusiness')}>
+                  <input
+                    type="email"
+                    id='emailBusiness'
+                    placeholder={t.info.emailBizPh}
+                    className="w-full outline-0 h-full tracking-wide"
+                    value={formData.emailBusiness}
+                    onChange={handleChange}
+                  />
+                </div>
+                {errorText('emailBusiness')}
+              </div>
+            </div>
+
+            <label className={labelClass}>{t.info.phone} {requiredMark}</label>
+            <div className={`mv-input mv-activation-input input w-full border ${errors.phone ? 'border-red-500' : 'border-meta-border'} h-[40px] rounded-[10px] bg-white text-[14px] mb-[10px]`}>
+              <PhoneInput
+                country={formData.country_code?.toLowerCase() || "us"}
+                value={formData.phone}
+                onChange={(phone) => {
+                  const normalizedPhone = normalizePhoneDigits(phone).slice(0, 15);
+                  dispatch(updateForm({ phone: normalizedPhone }))
+                  setErrors(prev => ({ ...prev, phone: '' }))
+                }}
+                inputProps={{
+                  name: 'phone',
+                  required: true,
+                }}
+              />
+            </div>
+            {errorText('phone')}
 
             <FacebookNotifyToggle
               checked={fbNotifyOn}

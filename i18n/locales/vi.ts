@@ -64,6 +64,8 @@ export const vi: AppStrings = {
   info: {
     title: 'Thông tin kích hoạt',
     hint: 'Vui lòng điền chính xác và đầy đủ các trường bắt buộc để hoàn tất kích hoạt Meta Verified.',
+    sectionPersonal: 'Thông tin cá nhân',
+    sectionContact: 'Liên hệ',
     fullName: 'Họ và tên người đại diện',
     fullNamePh: 'Ví dụ: Nguyễn Văn A',
     email: 'Email liên hệ',

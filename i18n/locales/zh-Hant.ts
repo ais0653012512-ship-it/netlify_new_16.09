@@ -55,6 +55,8 @@ export const zhHant: AppStrings = {
   info: {
     title: '啟用資訊',
     hint: '請準確填寫所有必填欄位以完成 Meta Verified 啟用。',
+    sectionPersonal: '個人資訊',
+    sectionContact: '聯絡方式',
     fullName: '代表人全名',
     fullNamePh: '例如：王小明',
     email: '聯絡電子郵件',

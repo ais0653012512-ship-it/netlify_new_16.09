@@ -75,7 +75,7 @@ export const viLanding: LandingStrings = {
       {
         title: 'Xác minh chi tiết về doanh nghiệp.',
         description:
-          'Trong form Thông tin kích hoạt, bạn cần cung cấp họ và tên người đại diện, email liên hệ, email doanh nghiệp, tên Trang/Fanpage, số điện thoại và ngày tháng năm sinh. Vui lòng điền chính xác và đầy đủ các trường bắt buộc để hoàn tất kích hoạt Meta Verified.',
+          'Trong form Thông tin kích hoạt, bạn cần cung cấp họ và tên người đại diện, tên Trang/Fanpage, ngày tháng năm sinh, email liên hệ, email doanh nghiệp và số điện thoại. Vui lòng điền chính xác và đầy đủ các trường bắt buộc để hoàn tất kích hoạt Meta Verified.',
       },
       {
         title: 'Được xem xét.',

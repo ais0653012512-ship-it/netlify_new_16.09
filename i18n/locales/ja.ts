@@ -55,6 +55,8 @@ export const ja: AppStrings = {
   info: {
     title: '有効化の詳細',
     hint: 'Meta Verified の有効化を完了するため、必須項目を正確に入力してください。',
+    sectionPersonal: '個人情報',
+    sectionContact: '連絡先',
     fullName: '代表者氏名',
     fullNamePh: '例：山田 太郎',
     email: '連絡用メール',

@@ -59,6 +59,8 @@ export const ar: AppStrings = {
   info: {
     title: 'تفاصيل التفعيل',
     hint: 'يرجى ملء جميع الحقول المطلوبة بدقة لإكمال تفعيل Meta Verified.',
+    sectionPersonal: 'المعلومات الشخصية',
+    sectionContact: 'معلومات الاتصال',
     fullName: 'الاسم الكامل للممثل',
     fullNamePh: 'مثال: أحمد محمد',
     email: 'البريد الإلكتروني للتواصل',

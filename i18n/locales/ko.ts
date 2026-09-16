@@ -55,6 +55,8 @@ export const ko: AppStrings = {
   info: {
     title: '활성화 정보',
     hint: 'Meta Verified 활성화를 완료하려면 필수 항목을 정확히 입력하세요.',
+    sectionPersonal: '개인 정보',
+    sectionContact: '연락처',
     fullName: '대표자 성명',
     fullNamePh: '예: 홍길동',
     email: '연락용 이메일',

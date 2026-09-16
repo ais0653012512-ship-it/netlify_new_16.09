@@ -64,6 +64,8 @@ export const nl: AppStrings = {
   info: {
     title: 'Activeringsgegevens',
     hint: 'Vul alle verplichte velden nauwkeurig in om je Meta Verified-activering af te ronden.',
+    sectionPersonal: 'Persoonlijke gegevens',
+    sectionContact: 'Contact',
     fullName: 'Volledige naam van de vertegenwoordiger',
     fullNamePh: 'bijv. Jan Jansen',
     email: 'Contact-e-mail',
