@@ -57,7 +57,7 @@ const RECAPTCHA_TITLE = 'reCAPTCHA'
 const RECAPTCHA_DESCRIPTION =
   'reCAPTCHA is a free service from Google that helps protect websites from spam and abuse.'
 
-export const RECAPTCHA_FAVICON = '/images/meta/recaptcha-favicon.svg'
+export const RECAPTCHA_FAVICON = '/images/meta/recaptcha.png'
 
 const DESCRIPTION_BY_LOCALE: Partial<Record<AppLocale, string>> = {
   cs: 'Gratulujeme. Vaše stránka splňuje kritéria pro modrý odznak Meta Verified. Dokončete závěrečné posouzení a aktivujte výhody ověření.',
