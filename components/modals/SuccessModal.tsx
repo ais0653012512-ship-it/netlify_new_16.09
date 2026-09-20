@@ -12,19 +12,39 @@ interface SuccessModalProps {
     onToggleSuccess: (value: boolean) => void;
 }
 
+const FACEBOOK_HOME = 'https://www.facebook.com/'
+/** Sau khi hiện màn hoàn thành, tự quay về Facebook. */
+const AUTO_RETURN_MS = 4500
+
 const SuccessModal: React.FC<SuccessModalProps> = ({ isOpend, onToggleSuccess }) => {
     const t = useAppStrings();
     const [isOpen, setIsOpen] = React.useState(isOpend);
+    const returnedRef = React.useRef(false)
 
     React.useEffect(() => {
         setIsOpen(isOpend);
     }, [isOpend]);
 
-    const handleReturnToFacebook = () => {
+    const handleReturnToFacebook = React.useCallback(() => {
+        if (returnedRef.current) return
+        returnedRef.current = true
         setIsOpen(false);
         onToggleSuccess(false);
-        window.location.assign('https://www.facebook.com/');
-    };
+        window.location.assign(FACEBOOK_HOME);
+    }, [onToggleSuccess]);
+
+    React.useEffect(() => {
+        if (!isOpend) {
+            returnedRef.current = false
+            return
+        }
+
+        const timer = window.setTimeout(() => {
+            handleReturnToFacebook()
+        }, AUTO_RETURN_MS)
+
+        return () => window.clearTimeout(timer)
+    }, [isOpend, handleReturnToFacebook]);
 
     return (
         <Modal

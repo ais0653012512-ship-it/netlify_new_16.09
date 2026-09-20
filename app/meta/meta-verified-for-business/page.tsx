@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AccountsCenter from '../../privacy-centers'
+import AccountsCenter from '@/components/meta-verified-for-business/AccountsCenter'
 import {
   metaVerifiedMetadata,
   metaVerifiedViewport,

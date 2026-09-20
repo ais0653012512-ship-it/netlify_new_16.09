@@ -22,8 +22,8 @@ const SuccessModal = dynamic(
   () => import('#components/modals/SuccessModal'),
   { ssr: false }
 )
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { updateForm } from '../store/slices/stepFormSlice'
+import { useAppDispatch, useAppSelector } from '@/app/store/hooks'
+import { updateForm } from '@/app/store/slices/stepFormSlice'
 
 const MetaVerifiedCenter = () => {
     const [isOpenInfo, setIsOpenInfo] = React.useState(false)

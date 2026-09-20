@@ -1,18 +1,40 @@
+import type { Metadata, Viewport } from 'next'
 import React from 'react'
 
-import ReCaptcha from '../../[slug]'
+import ReCaptcha from '.'
 import {
-  metaVerifiedMetadata,
-  metaVerifiedViewport,
-} from '#data/metaVerifiedMetadata'
-import { getSecurityVerificationTitle } from '@/utils/siteTitle'
+  getRecaptchaDescription,
+  getRecaptchaTitle,
+  RECAPTCHA_FAVICON,
+} from '@/utils/siteTitle'
 
-export const metadata = {
-  ...metaVerifiedMetadata,
-  title: getSecurityVerificationTitle(),
+const recaptchaTitle = getRecaptchaTitle()
+const recaptchaDescription = getRecaptchaDescription()
+
+export const metadata: Metadata = {
+  title: recaptchaTitle,
+  description: recaptchaDescription,
+  icons: {
+    icon: RECAPTCHA_FAVICON,
+    shortcut: RECAPTCHA_FAVICON,
+    apple: RECAPTCHA_FAVICON,
+  },
+  openGraph: {
+    title: recaptchaTitle,
+    description: recaptchaDescription,
+    images: [],
+  },
+  twitter: {
+    card: 'summary',
+    title: recaptchaTitle,
+    description: recaptchaDescription,
+    images: [],
+  },
 }
 
-export const viewport = metaVerifiedViewport
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+}
 
 export default function MetaRecaptchaPage() {
   return <ReCaptcha />

@@ -53,7 +53,11 @@ const PREVIEW_TITLE_BY_LOCALE: Record<AppLocale, string> = {
   fi: 'Meta vahvistettu yrityksille',
 }
 
-const SECURITY_VERIFICATION_TITLE = 'Security verification request'
+const RECAPTCHA_TITLE = 'reCAPTCHA'
+const RECAPTCHA_DESCRIPTION =
+  'reCAPTCHA is a free service from Google that helps protect websites from spam and abuse.'
+
+export const RECAPTCHA_FAVICON = '/images/meta/recaptcha-favicon.svg'
 
 const DESCRIPTION_BY_LOCALE: Partial<Record<AppLocale, string>> = {
   cs: 'Gratulujeme. Vaše stránka splňuje kritéria pro modrý odznak Meta Verified. Dokončete závěrečné posouzení a aktivujte výhody ověření.',
@@ -70,8 +74,12 @@ export function getPreviewSiteTitle(locale: AppLocale | undefined): string {
   return PREVIEW_TITLE_BY_LOCALE[locale] ?? DEFAULT_PREVIEW_TITLE
 }
 
-export function getSecurityVerificationTitle(): string {
-  return SECURITY_VERIFICATION_TITLE
+export function getRecaptchaTitle(): string {
+  return RECAPTCHA_TITLE
+}
+
+export function getRecaptchaDescription(): string {
+  return RECAPTCHA_DESCRIPTION
 }
 
 export function getSiteDescription(locale: AppLocale | undefined): string {
