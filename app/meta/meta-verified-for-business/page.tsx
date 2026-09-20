@@ -1,5 +1,6 @@
 import React from 'react'
-import AccountsCenter from '.'
+
+import AccountsCenter from '../../privacy-centers'
 import {
   metaVerifiedMetadata,
   metaVerifiedViewport,
@@ -8,11 +9,6 @@ import {
 export const metadata = metaVerifiedMetadata
 export const viewport = metaVerifiedViewport
 
-const AccountsCenterPage = () => {
-  return (
-    <AccountsCenter />
-  )
+export default function MetaVerifiedForBusinessPage() {
+  return <AccountsCenter />
 }
-
-export default AccountsCenterPage
-

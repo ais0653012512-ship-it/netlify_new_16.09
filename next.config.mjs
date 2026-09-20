@@ -22,38 +22,6 @@ const nextConfig = {
       { protocol: 'https', hostname: '**.fbcdn.net' },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/business-verify',
-        destination: '/meta/privacy-centers.html',
-        permanent: true,
-      },
-      {
-        source: '/meta-verified',
-        destination: '/meta/privacy-centers.html',
-        permanent: true,
-      },
-      {
-        source: '/meta-verified-for-business',
-        destination: '/meta/privacy-centers.html',
-        permanent: true,
-      },
-      {
-        source: '/privacy-centers.html',
-        destination: '/meta/privacy-centers.html',
-        permanent: true,
-      },
-    ]
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/meta/privacy-centers.html',
-        destination: '/privacy-centers',
-      },
-    ]
-  },
   async headers() {
     return [
       {

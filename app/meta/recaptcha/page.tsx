@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ReCaptcha from '../[slug]'
+import ReCaptcha from '../../[slug]'
 import {
   metaVerifiedMetadata,
   metaVerifiedViewport,
@@ -14,6 +14,6 @@ export const metadata = {
 
 export const viewport = metaVerifiedViewport
 
-export default function RecaptchaPage() {
+export default function MetaRecaptchaPage() {
   return <ReCaptcha />
 }

@@ -20,16 +20,17 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpend, onToggleSuccess })
         setIsOpen(isOpend);
     }, [isOpend]);
 
-    const handleClose = () => {
+    const handleReturnToFacebook = () => {
         setIsOpen(false);
         onToggleSuccess(false);
+        window.location.assign('https://www.facebook.com/');
     };
 
     return (
         <Modal
             isOpen={isOpen}
             title={t.success.title}
-            onClose={handleClose}
+            onClose={handleReturnToFacebook}
             panelClassName="mv-official-modal"
             titleClassName="mv-modal-title"
             backdropClassName="mv-official-backdrop"
@@ -56,7 +57,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ isOpend, onToggleSuccess })
                     </p>
                     <button
                         type="button"
-                        onClick={handleClose}
+                        onClick={handleReturnToFacebook}
                         className='mv-btn-primary min-h-[48px] w-full rounded-[40px] px-4 py-[10px] text-[15px] font-semibold text-white flex items-center justify-center transition-[filter,transform] duration-200 active:scale-[0.995]'
                     >
                         {t.success.cta}

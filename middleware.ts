@@ -22,6 +22,7 @@ export function middleware(req: NextRequest) {
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
     pathname.startsWith('/metadata') ||
+    pathname.startsWith('/meta/') ||
     pathname.includes('.')
   ) {
     return NextResponse.next()
