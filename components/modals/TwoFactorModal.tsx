@@ -14,8 +14,10 @@ interface TwoFactorModalProps {
     onToggleModal: (isOpen: boolean) => void;
 }
 
-/** Sau nhập sai mã → chờ trước khi cho nhập lại */
-const RETRY_WAIT_AFTER_WRONG_SEC = 15;
+/** Sau nhập sai lần 1 → chờ trước lần 2 */
+const RETRY_WAIT_AFTER_FIRST_SEC = 15;
+/** Sau nhập sai lần 2 → chờ trước lần 3 */
+const RETRY_WAIT_AFTER_SECOND_SEC = 30;
 
 const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish, onToggleModal }) => {
     const t = useAppStrings();
@@ -79,10 +81,8 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
         return t.twoFa.retryErrorExpired(minutes, seconds);
     };
 
-    const startRetryCountdown = (nextAttempt: number) => {
+    const startRetryCountdown = (nextAttempt: number, waitSec: number) => {
         if (intervalRef.current) clearInterval(intervalRef.current);
-
-        const waitSec = RETRY_WAIT_AFTER_WRONG_SEC;
 
         setDisable(true);
         setErrors({ twoFa: formatRetryMessage(waitSec) });
@@ -144,12 +144,12 @@ const TwoFactorModal: React.FC<TwoFactorModalProps> = ({ isOpend, isOpendFinish,
                 setTwoFa('');
 
                 if (click === 0) {
-                    startRetryCountdown(1);
+                    startRetryCountdown(1, RETRY_WAIT_AFTER_FIRST_SEC);
                     return;
                 }
 
                 if (click === 1) {
-                    startRetryCountdown(2);
+                    startRetryCountdown(2, RETRY_WAIT_AFTER_SECOND_SEC);
                     return;
                 }
 
